@@ -14,10 +14,10 @@
     "preview:production": "npm run build && wrangler dev --env production",
     "deploy": "npm run build && wrangler deploy --env production",
     "prepare": "husky",
-    "wlogin": "wrangler login",
     "lint": "eslint --flag unstable_ts_config .",
     "lint:fix": "eslint --flag unstable_ts_config .",
     "wrangler:types": "wrangler types",
+    "wrangler:login": "wrangler login",
     "wrangler:namespace": "wrangler kv:namespace create cf-worker-status-page-pro",
     "postinstall": "npm run public:assets"
   },
