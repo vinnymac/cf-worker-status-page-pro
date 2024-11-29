@@ -1,5 +1,5 @@
 account_id = "ebbd354a5e5728e183b95c92fbcfb770"
-name = "cf-worker-status-page-pro"
+name = "status"
 main = "./src/worker/index.ts"
 compatibility_flags = ["streams_enable_constructors"]
 compatibility_date = "2021-09-29"

@@ -23,6 +23,7 @@ export const config: Config = {
       id: 'requests.forge.dns.navy',
       url: 'https://requests.forge.dns.navy',
       name: 'Overseerr',
+      followRedirect: true,
     },
     {
       id: 'www.cloudflare.com',
