@@ -9,7 +9,7 @@
     "preview": "npm run build && wrangler dev",
     "preview:production": "npm run build && wrangler dev --env production",
     "deploy": "npm run build && wrangler deploy --env production",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint --flag unstable_ts_config .",
     "lint:fix": "eslint --flag unstable_ts_config .",
     "wrangler:types": "wrangler types",
