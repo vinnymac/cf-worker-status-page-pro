@@ -93,27 +93,8 @@ export default function Page() {
       </main>
       <footer className='my-4 flex justify-between'>
         <span>
-          Powered by
-          {' '}
-          <a href='https://workers.cloudflare.com/' target='_blank' rel='noreferrer'>
-            Cloudflare Workers
-          </a>
-          {' '}
-          &
-          {' '}
-          <a href='https://vike.dev/' target='_blank' rel='noreferrer'>
-            Vike
-          </a>
+          Powered by your grandmothers tomato sauce
         </span>
-        <a
-          href='https://github.com/yunsii/cf-worker-status-page-pro'
-          target='_blank'
-          rel='noreferrer'
-          className='flex items-center gap-1'
-        >
-          <span className='i-ic--outline-star size-4 animate-bounce' />
-          Get your status page
-        </a>
       </footer>
     </div>
   )
