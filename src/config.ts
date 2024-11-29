@@ -21,7 +21,7 @@ export const config: Config = {
     },
     {
       id: 'requests.forge.dns.navy',
-      url: 'https://requests.forge.dns.navy',
+      url: 'https://requests.forge.dns.navy/login',
       name: 'Overseerr',
       followRedirect: true,
     },
