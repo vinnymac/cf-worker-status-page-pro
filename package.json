@@ -1,7 +1,11 @@
 {
   "name": "cf-worker-status-page-pro",
   "type": "module",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.14.4",
+  "volta": {
+    "node": "20.18.1",
+    "pnpm": "9.14.4"
+  },
   "scripts": {
     "dev": "tsx ./dev-server",
     "public:assets": "tsx ./scripts/public-assets.ts",
