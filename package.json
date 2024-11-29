@@ -1,7 +1,11 @@
 {
   "name": "cf-worker-status-page-pro",
   "type": "module",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.14.4",
+  "volta": {
+    "node": "20.18.1",
+    "pnpm": "9.14.4"
+  },
   "scripts": {
     "dev": "tsx ./dev-server",
     "public:assets": "tsx ./scripts/public-assets.ts",
@@ -9,10 +13,12 @@
     "preview": "npm run build && wrangler dev",
     "preview:production": "npm run build && wrangler dev --env production",
     "deploy": "npm run build && wrangler deploy --env production",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint --flag unstable_ts_config .",
     "lint:fix": "eslint --flag unstable_ts_config .",
     "wrangler:types": "wrangler types",
+    "wrangler:login": "wrangler login",
+    "wrangler:namespace": "wrangler kv:namespace create cf-worker-status-page-pro",
     "postinstall": "npm run public:assets"
   },
   "dependencies": {
@@ -27,11 +33,11 @@
     "react-streaming": "^0.3.43",
     "tagged-classnames-free": "0.1.0-next.1",
     "vike": "0.4.195",
-    "wrangler": "^3.75.0"
+    "wrangler": "^3.91.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.27.1",
-    "@cloudflare/workers-types": "^4.20240903.0",
+    "@cloudflare/workers-types": "^4.20241106.0",
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3",
@@ -51,7 +57,7 @@
     "dedent": "^1.5.3",
     "eslint": "9.9.1",
     "eslint-plugin-format": "^0.1.2",
-    "eslint-plugin-react-hooks": "5.1.0-rc-fb9a90fa48-20240614",
+    "eslint-plugin-react-hooks": "5.1.0-rc.1",
     "eslint-plugin-react-refresh": "^0.4.11",
     "eslint-plugin-tailwindcss": "^3.14.3",
     "express": "^4.18.2",

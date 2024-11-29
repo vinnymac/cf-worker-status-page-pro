@@ -11,5 +11,7 @@ export default janna({
 }, {
   rules: {
     'style/jsx-indent': ['off'],
+    'toml/array-bracket-newline': ['off'],
+    'toml/array-bracket-spacing': ['error', 'never', { objectsInArrays: true }],
   },
 })
