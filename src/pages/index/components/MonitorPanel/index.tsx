@@ -61,7 +61,7 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
       >
         <span className='flex items-center gap-2 font-medium'>
           {allOperational ? 'All Systems Operational' : 'System Disruption Detected'}
-          <span className='relative flex size-2.5'>
+          <span className='relative flex size-2.5 pt-px'>
             <span className={`absolute inline-flex size-full rounded-full motion-safe:animate-ping motion-safe:[animation-duration:1.2s] ${titlePingColor} opacity-75`} />
             <span className={`relative inline-flex size-2.5 rounded-full ${titleStatusColor}`} />
           </span>
