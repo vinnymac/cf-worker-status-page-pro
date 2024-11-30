@@ -52,19 +52,20 @@ export default function Page() {
       <header className='flex items-center justify-between'>
         <div className='flex items-center gap-2'>
           <img src='/logo.svg' className='size-10' />
-          <h1 className='text-3xl [text-shadow:#a8f3ff_1px_0_10px]'>{config.settings.title}</h1>
+          <h1 className='text-3xl font-medium [text-shadow:#a8f3ff_1px_0_10px]'>{config.settings.title}</h1>
         </div>
         <div className='flex justify-center'>
           <button
             type='button'
             title='Toggle Theme'
-            className='px-4 text-2xl text-slate-950 transition-all will-change-transform [text-shadow:#FC0_1px_0_10px] active:[transform:scale(0.8,0.8)] dark:text-lime-50'
+            className="px-4 text-2xl text-blue-900 transition-all will-change-transform
+            [text-shadow:#00b9b9_1px_0_6px] before:content-['☾']
+            active:[transform:scale(0.8,0.8)] dark:text-lime-50
+            dark:[text-shadow:#FC0_1px_0_8px] dark:before:content-['☀︎']"
             onClick={() => {
               document.documentElement.classList.toggle('dark')
             }}
-          >
-            ☀︎
-          </button>
+          />
           <input
             ref={inputRef}
             value={searchValue}
@@ -86,9 +87,9 @@ export default function Page() {
               setInputFocused(false)
             }}
             className={cls`
-              h-10 rounded-full border bg-slate-50 px-4 text-slate-900
-              shadow outline-none transition-all focus:border-cyan-400 dark:bg-slate-300
-              dark:placeholder:text-slate-500 focus:dark:border-cyan-500
+              h-10 rounded-full border bg-slate-50 px-4 text-sm text-slate-900
+              shadow outline-none transition-all placeholder:font-light
+              focus:border-cyan-400 dark:bg-slate-300 dark:placeholder:text-slate-500 focus:dark:border-cyan-500
             `}
             placeholder='Type "/" to search'
           />
