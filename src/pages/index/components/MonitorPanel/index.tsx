@@ -1,4 +1,3 @@
-import { cls } from 'tagged-classnames-free'
 import React from 'react'
 
 import Empty from './Empty'
@@ -43,13 +42,15 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
   const monitorIds = (Object.keys(data.monitorHistoryData) || [])
   const allOperational = data.lastUpdate?.checks.allOperational
 
-  const titleCls = allOperational ? cls`border-green-500 bg-green-300 text-green-800 dark:border-green-600 dark:bg-green-800 dark:text-green-300` : cls`border-red-500 bg-red-300 text-red-800 dark:border-red-600 dark:bg-red-800 dark:text-red-300`
+  const titlePingColor = allOperational ? 'bg-green-400' : 'bg-red-400'
+  const titleStatusColor = allOperational ? 'bg-green-500' : 'bg-red-500'
+  const titleCls = allOperational ? 'border-green-500 bg-green-300 text-green-800 dark:border-green-600 dark:bg-green-800 dark:text-green-300' : 'border-red-500 bg-red-300 text-red-800 dark:border-red-600 dark:bg-red-800 dark:text-red-300'
   return (
     <div {...restDivProps}>
       <div
-        className={cls`
+        className={`
           flex items-center justify-between rounded border px-4 py-2 text-lg font-bold shadow-md transition-all
-          ${titleCls}
+                    ${titleCls}
         `}
         onDoubleClick={() => {
           // eslint-disable-next-line no-console
@@ -58,8 +59,12 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           console.log('data', data)
         }}
       >
-        <span className='font-medium'>
-          {allOperational ? 'All Systems Operational' : 'Not All Systems Operational'}
+        <span className='flex items-center gap-2 font-medium'>
+          {allOperational ? 'All Systems Operational' : 'System Disruption Detected'}
+          <span className='relative flex size-2.5'>
+            <span className={`absolute inline-flex size-full rounded-full motion-safe:animate-ping motion-safe:[animation-duration:1.2s] ${titlePingColor} opacity-75`} />
+            <span className={`relative inline-flex size-2.5 rounded-full ${titleStatusColor}`} />
+          </span>
         </span>
         {!!data.lastUpdate && (
           <div className='text-xs font-light' suppressHydrationWarning title={new Date(data.lastUpdate.time).toLocaleString()}>
@@ -75,10 +80,7 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           </div>
         )}
       </div>
-      <ul className={cls`
-        mt-4 flex flex-col gap-y-2
-      `}
-      >
+      <ul className='mt-4 flex flex-col gap-y-2'>
         {monitorIds.filter((item) => {
           const targetMonitor = allMonitors.find((monitorItem) => monitorItem.id === item)
           const title = targetMonitor?.name || item
@@ -146,27 +148,25 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           }[]
 
           return (
-            <li key={item} className={cls`[&:not(:last-child)]:mb-2`}>
+            <li key={item} className='[&:not(:last-child)]:mb-2'>
               <div className='mb-1 flex items-center gap-2'>
                 <h2 className='font-light text-slate-950 dark:text-slate-50'>
                   {title}
                 </h2>
                 {!!info.length && (
                   <Tooltip>
-                    <TooltipTrigger className={cls` size-5 text-slate-500`}>
-                      <span className={cls`i-ic--outline-info size-full`} />
+                    <TooltipTrigger className='size-5 text-slate-500'>
+                      <span className='i-ic--outline-info size-full' />
                     </TooltipTrigger>
                     <TooltipContent
                       as='ul'
-                      className={cls`
-                        list-none whitespace-pre rounded p-2
-                        shadow-lg backdrop-blur-lg
-                      `}
+                      className='list-none whitespace-pre rounded p-2
+                        shadow-lg backdrop-blur-lg'
                     >
                       {info.map((item) => {
                         return (
                           <li key={item.key}>
-                            <span className={cls`font-medium after:content-[':_']`}>
+                            <span className="font-medium after:content-[':_']">
                               {item.key}
                             </span>
                             <span className='text-sm'>
@@ -210,21 +210,21 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                       statusStr = 'All good'
                       break
                     case 'all-incidents':
-                      color = cls`bg-red-700 dark:bg-red-800`
-                      textColor = cls`text-red-700 dark:text-red-800`
-                      insetColor = cls`text-red-800 dark:text-red-700`
+                      color = 'bg-red-700 dark:bg-red-800'
+                      textColor = 'text-red-700 dark:text-red-800'
+                      insetColor = 'text-red-800 dark:text-red-700'
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     case 'latest-incident':
-                      color = cls`bg-red-500 dark:bg-red-600`
-                      textColor = cls`text-red-500 dark:text-red-600`
-                      insetColor = cls`text-red-600 dark:text-red-500`
+                      color = 'bg-red-500 dark:bg-red-600'
+                      textColor = 'text-red-500 dark:text-red-600'
+                      insetColor = 'text-red-600 dark:text-red-500'
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     case 'has-incident':
-                      color = cls`bg-yellow-500 dark:bg-yellow-600`
-                      textColor = cls`text-yellow-500 dark:text-yellow-600`
-                      insetColor = cls`text-yellow-600 dark:text-yellow-500`
+                      color = 'bg-yellow-500 dark:bg-yellow-600'
+                      textColor = 'text-yellow-500 dark:text-yellow-600'
+                      insetColor = 'text-yellow-600 dark:text-yellow-500'
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     default:
@@ -237,20 +237,18 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                     <Tooltip key={dateItem}>
                       <TooltipTrigger
                         as='li'
-                        className='relative h-full'
+                        className='relative h-full will-change-transform hover:scale-125 motion-safe:transition-transform'
                         style={{
                           width: itemWidth,
                         }}
                       >
                         <span
-                          className={cls`
+                          className={`
                             rounded-sm transition-all hover:opacity-70
                             ${color} ${insetColor} block
-                            before:absolute
-                            before:inset-0
+                            before:absolute before:inset-0
                             before:rounded-sm
-                            before:border-[0.8px]
-                            before:border-current
+                            before:border-[0.8px] before:border-current
                             before:content-['_']
                           `}
                           style={{
@@ -258,20 +256,20 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                           }}
                         />
                       </TooltipTrigger>
-                      <TooltipContent className={cls`
+                      <TooltipContent className={`
                         whitespace-pre rounded p-2 text-center text-sm
-                        shadow-lg backdrop-blur-lg
+                                                shadow-lg backdrop-blur-lg
                       `}
                       >
                         <div className='font-semibold'>{dateItem}</div>
-                        {statusStr && <div className={cls`${textColor} font-semibold`}>{statusStr}</div>}
+                        {statusStr && <div className={`${textColor} font-semibold`}>{statusStr}</div>}
                         <div />
                         {targetDateChecksItem
                           ? Object.keys(targetDateChecksItem.stats).map((item) => {
                             const stat = targetDateChecksItem.stats[item]
                             return (
                               <div key={item}>
-                                <span className={cls`after:content-[':_']`}>
+                                <span className={`after:content-[':_']`}>
                                   {parseLocation(item)}
                                 </span>
                                 <span>

@@ -58,9 +58,9 @@ export default function Page() {
           <button
             type='button'
             title='Toggle Theme'
-            className="px-4 text-2xl text-blue-900 transition-all will-change-transform
-            [text-shadow:#00b9b9_1px_0_6px] before:content-['☾']
-            active:[transform:scale(0.8,0.8)] dark:text-lime-50
+            className="px-4 text-2xl text-blue-900 will-change-transform [text-shadow:#00b9b9_1px_0_6px]
+            before:content-['☾'] hover:scale-110
+            active:scale-75 motion-safe:transition-all dark:text-lime-50
             dark:[text-shadow:#FC0_1px_0_8px] dark:before:content-['☀︎']"
             onClick={() => {
               document.documentElement.classList.toggle('dark')
