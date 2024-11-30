@@ -30,6 +30,7 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
       <title>${config.settings.title}</title>
       <head>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <script type="text/javascript">document.documentElement.classList.add(window.matchMedia('(prefers-color-scheme: light)').matches ? '' : 'dark')</script>
       </head>
       <body>
         <div id="page-view">${stream}</div>

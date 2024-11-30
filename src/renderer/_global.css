@@ -3,9 +3,22 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-50;
+  @apply bg-slate-50 transition-all;
+}
+
+html {
+  @apply transition-all;
 }
 
 a {
   @apply text-blue-500 hover:text-blue-400 hover:underline transition-all;
+}
+
+/* Dark Mode */
+html.dark {
+  @apply text-slate-50;
+}
+
+html.dark body {
+  @apply bg-slate-900;
 }
