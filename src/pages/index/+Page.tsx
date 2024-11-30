@@ -54,7 +54,7 @@ export default function Page() {
           <img src='/logo.svg' className='size-10' />
           <h1 className='text-3xl font-medium [text-shadow:#a8f3ff_1px_0_10px]'>{config.settings.title}</h1>
         </div>
-        <div className='flex justify-center'>
+        <div className='flex min-w-48 justify-center'>
           <button
             type='button'
             title='Toggle Theme'
@@ -67,6 +67,11 @@ export default function Page() {
             }}
           />
           <input
+            className={cls`
+              h-10 min-w-[155px] rounded-full border bg-slate-50 px-4 text-sm text-slate-900
+              shadow outline-none transition-all placeholder:font-light
+              focus:border-cyan-400 dark:bg-slate-300 dark:placeholder:text-slate-500 focus:dark:border-cyan-500
+            `}
             ref={inputRef}
             value={searchValue}
             onChange={((event) => {
@@ -86,11 +91,6 @@ export default function Page() {
             onBlur={() => {
               setInputFocused(false)
             }}
-            className={cls`
-              h-10 rounded-full border bg-slate-50 px-4 text-sm text-slate-900
-              shadow outline-none transition-all placeholder:font-light
-              focus:border-cyan-400 dark:bg-slate-300 dark:placeholder:text-slate-500 focus:dark:border-cyan-500
-            `}
             placeholder='Type "/" to search'
           />
         </div>

@@ -49,7 +49,7 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
     <div {...restDivProps}>
       <div
         className={`
-          flex items-center justify-between rounded border px-4 py-2 text-lg font-bold shadow-md transition-all
+          flex flex-col items-center justify-center rounded border px-4 py-2 text-lg font-bold shadow-md transition-all md:flex-row md:items-center md:justify-between
                     ${titleCls}
         `}
         onDoubleClick={() => {
@@ -59,9 +59,9 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           console.log('data', data)
         }}
       >
-        <span className='flex items-center gap-2 font-medium'>
+        <span className='ml-2 flex items-center gap-2 font-medium'>
           {allOperational ? 'All Systems Operational' : 'System Disruption Detected'}
-          <span className='relative flex size-2.5 pt-px'>
+          <span className='relative flex size-2.5 md:pt-px'>
             <span className={`absolute inline-flex size-full rounded-full motion-safe:animate-ping motion-safe:[animation-duration:1.2s] ${titlePingColor} opacity-75`} />
             <span className={`relative inline-flex size-2.5 rounded-full ${titleStatusColor}`} />
           </span>
@@ -149,48 +149,50 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
 
           return (
             <li key={item} className='[&:not(:last-child)]:mb-2'>
-              <div className='mb-1 flex items-center gap-2'>
-                <h2 className='font-light text-slate-950 dark:text-slate-50'>
+              <div className='mb-1 flex items-center justify-between gap-2 md:justify-start'>
+                <h2 className='text-3xl font-light text-slate-950 md:text-2xl lg:text-lg dark:text-slate-50'>
                   {title}
                 </h2>
-                {!!info.length && (
-                  <Tooltip>
-                    <TooltipTrigger className='size-5 text-slate-500'>
-                      <span className='i-ic--outline-info size-full' />
-                    </TooltipTrigger>
-                    <TooltipContent
-                      as='ul'
-                      className='list-none whitespace-pre rounded p-2
-                        shadow-lg backdrop-blur-lg'
+                <div className='flex items-center gap-2'>
+                  {!!info.length && (
+                    <Tooltip>
+                      <TooltipTrigger className='size-5 text-slate-500'>
+                        <span className='i-ic--outline-info size-full' />
+                      </TooltipTrigger>
+                      <TooltipContent
+                        as='ul'
+                        className='list-none whitespace-pre rounded p-2
+                          shadow-lg backdrop-blur-lg'
+                      >
+                        {info.map((item) => {
+                          return (
+                            <li key={item.key}>
+                              <span className="text-lg font-medium after:content-[':_'] md:text-base">
+                                {item.key}
+                              </span>
+                              <span className='text-base md:text-sm'>
+                                {item.value}
+                              </span>
+                            </li>
+                          )
+                        })}
+                      </TooltipContent>
+                    </Tooltip>
+                  )}
+                  {monitorConfig
+                  && (!monitorConfig.method || monitorConfig.method.toUpperCase() === 'GET')
+                  && (
+                    <a
+                      className='i-ic--outline-open-in-new size-5 text-slate-500 hover:text-slate-400'
+                      href={monitorConfig.url}
+                      target='_blank'
+                      rel='noreferrer'
+                      title='Open in new tab'
                     >
-                      {info.map((item) => {
-                        return (
-                          <li key={item.key}>
-                            <span className="font-medium after:content-[':_']">
-                              {item.key}
-                            </span>
-                            <span className='text-sm'>
-                              {item.value}
-                            </span>
-                          </li>
-                        )
-                      })}
-                    </TooltipContent>
-                  </Tooltip>
-                )}
-                {monitorConfig
-                && (!monitorConfig.method || monitorConfig.method.toUpperCase() === 'GET')
-                && (
-                  <a
-                    className='i-ic--outline-open-in-new size-5 text-slate-500 hover:text-slate-400'
-                    href={monitorConfig.url}
-                    target='_blank'
-                    rel='noreferrer'
-                    title='Open in new tab'
-                  >
-                    <span className='sr-only'>{title}</span>
-                  </a>
-                )}
+                      <span className='sr-only'>{title}</span>
+                    </a>
+                  )}
+                </div>
               </div>
               <ul className='flex gap-1'>
                 {getHistoryDates().map((dateItem) => {
@@ -246,14 +248,12 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                           className={`
                             rounded-sm transition-all hover:opacity-70
                             ${color} ${insetColor} block
-                            before:absolute before:inset-0
-                            before:rounded-sm
-                            before:border-[0.8px] before:border-current
-                            before:content-['_']
+                            h-10 before:absolute
+                            before:inset-0
+                            before:rounded-sm before:border-[0.8px]
+                            before:border-current
+                            before:content-['_'] md:h-8 lg:h-7
                           `}
-                          style={{
-                            height: 28,
-                          }}
                         />
                       </TooltipTrigger>
                       <TooltipContent className={`
