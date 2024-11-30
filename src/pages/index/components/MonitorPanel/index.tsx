@@ -80,7 +80,7 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           </div>
         )}
       </div>
-      <ul className='mt-4 flex flex-col gap-y-2'>
+      <ul className='mt-6 flex flex-col gap-y-2 md:mt-4'>
         {monitorIds.filter((item) => {
           const targetMonitor = allMonitors.find((monitorItem) => monitorItem.id === item)
           const title = targetMonitor?.name || item

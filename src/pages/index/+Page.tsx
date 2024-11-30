@@ -48,13 +48,13 @@ export default function Page() {
   }
 
   return (
-    <div className='container max-w-screen-xl pt-4'>
-      <header className='flex items-center justify-between'>
+    <div className='container max-w-screen-xl px-2 pt-4 md:px-8'>
+      <header className='flex w-full flex-col items-center justify-between gap-3 md:w-auto md:flex-row md:gap-0'>
         <div className='flex items-center gap-2'>
           <img src='/logo.svg' className='size-10' />
           <h1 className='text-3xl font-medium [text-shadow:#a8f3ff_1px_0_10px]'>{config.settings.title}</h1>
         </div>
-        <div className='flex min-w-48 justify-center'>
+        <div className='flex w-full min-w-48 items-center justify-between md:w-auto md:justify-center'>
           <button
             type='button'
             title='Toggle Theme'
@@ -68,7 +68,7 @@ export default function Page() {
           />
           <input
             className={cls`
-              h-10 min-w-[155px] rounded-full border bg-slate-50 px-4 text-sm text-slate-900
+              h-10 w-full min-w-[155px] rounded-full border bg-slate-50 px-4 text-sm text-slate-900
               shadow outline-none transition-all placeholder:font-light
               focus:border-cyan-400 dark:bg-slate-300 dark:placeholder:text-slate-500 focus:dark:border-cyan-500
             `}
