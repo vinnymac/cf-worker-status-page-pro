@@ -170,7 +170,7 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                               <span className="text-lg font-medium after:content-[':_'] md:text-base">
                                 {item.key}
                               </span>
-                              <span className='text-base md:text-sm'>
+                              <span className='text-balance text-base md:text-sm'>
                                 {item.value}
                               </span>
                             </li>
