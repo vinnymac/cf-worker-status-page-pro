@@ -2,7 +2,7 @@ import type { Config } from './types'
 
 export const config: Config = {
   settings: {
-    title: 'Status Page Pro',
+    title: 'Status',
     url: 'https://status.vinnymac.workers.dev',
     displayDays: 90,
     collectResponseTimes: true,

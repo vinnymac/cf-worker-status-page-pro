@@ -43,12 +43,12 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
   const monitorIds = (Object.keys(data.monitorHistoryData) || [])
   const allOperational = data.lastUpdate?.checks.allOperational
 
-  const titleCls = allOperational ? cls`border-green-500 bg-green-300 text-green-800` : cls`border-red-500 bg-red-300 text-red-800`
+  const titleCls = allOperational ? cls`border-green-500 bg-green-300 text-green-800 dark:border-green-600 dark:bg-green-800 dark:text-green-300` : cls`border-red-500 bg-red-300 text-red-800 dark:border-red-600 dark:bg-red-800 dark:text-red-300`
   return (
     <div {...restDivProps}>
       <div
         className={cls`
-          flex items-center justify-between rounded border px-4 py-2 text-lg font-bold shadow-md
+          flex items-center justify-between rounded border px-4 py-2 text-lg font-bold shadow-md transition-all
           ${titleCls}
         `}
         onDoubleClick={() => {
@@ -148,7 +148,7 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           return (
             <li key={item} className={cls`[&:not(:last-child)]:mb-2`}>
               <div className='mb-1 flex items-center gap-2'>
-                <h2 className='text-slate-950'>
+                <h2 className='text-slate-950 dark:text-slate-50'>
                   {title}
                 </h2>
                 {!!info.length && (
@@ -197,29 +197,29 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                   const targetDateChecksItem = monitorData ? getTargetDateChecksItem(monitorData, dateItem) : undefined
                   const renderStatus = monitorData ? getChecksItemRenderStatus(monitorData, dateItem) : undefined
 
-                  let color = cls`bg-gray-300`
-                  let textColor = cls`text-gray-300`
+                  let color = cls`bg-gray-300 dark:bg-gray-500`
+                  let textColor = cls`text-gray-300 dark:text-gray-500`
                   let statusStr: React.ReactNode = null
 
                   switch (renderStatus) {
                     case 'all-good':
-                      color = cls`bg-green-500`
-                      textColor = cls`text-green-500`
+                      color = cls`bg-green-500 dark:bg-green-600`
+                      textColor = cls`text-green-500 dark:text-green-600`
                       statusStr = 'All good'
                       break
                     case 'all-incidents':
-                      color = cls`bg-red-700`
-                      textColor = cls`text-red-700`
+                      color = cls`bg-red-700 dark:bg-red-800`
+                      textColor = cls`text-red-700 dark:text-red-800`
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     case 'latest-incident':
-                      color = cls`bg-red-500`
-                      textColor = cls`text-red-500`
+                      color = cls`bg-red-500 dark:bg-red-600`
+                      textColor = cls`text-red-500 dark:text-red-600`
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     case 'has-incident':
-                      color = cls`bg-yellow-500`
-                      textColor = cls`text-yellow-500`
+                      color = cls`bg-yellow-500 dark:bg-yellow-600`
+                      textColor = cls`text-yellow-500 dark:text-yellow-600`
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     default:

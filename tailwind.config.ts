@@ -5,7 +5,7 @@ import { addDynamicIconSelectors } from 'tailwindcss-plugin-iconify'
 import type { Config } from 'tailwindcss'
 
 const config = {
-  darkMode: ['class'],
+  darkMode: 'selector',
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
   ],
