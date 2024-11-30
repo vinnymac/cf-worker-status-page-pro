@@ -58,9 +58,9 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           console.log('data', data)
         }}
       >
-        <div>
+        <span className='font-medium'>
           {allOperational ? 'All Systems Operational' : 'Not All Systems Operational'}
-        </div>
+        </span>
         {!!data.lastUpdate && (
           <div className='text-xs font-light' suppressHydrationWarning title={new Date(data.lastUpdate.time).toLocaleString()}>
             checked
@@ -148,7 +148,7 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
           return (
             <li key={item} className={cls`[&:not(:last-child)]:mb-2`}>
               <div className='mb-1 flex items-center gap-2'>
-                <h2 className='text-slate-950 dark:text-slate-50'>
+                <h2 className='font-light text-slate-950 dark:text-slate-50'>
                   {title}
                 </h2>
                 {!!info.length && (
@@ -166,10 +166,10 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                       {info.map((item) => {
                         return (
                           <li key={item.key}>
-                            <span className={cls`font-semibold after:content-[':_']`}>
+                            <span className={cls`font-medium after:content-[':_']`}>
                               {item.key}
                             </span>
-                            <span>
+                            <span className='text-sm'>
                               {item.value}
                             </span>
                           </li>
@@ -197,29 +197,34 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                   const targetDateChecksItem = monitorData ? getTargetDateChecksItem(monitorData, dateItem) : undefined
                   const renderStatus = monitorData ? getChecksItemRenderStatus(monitorData, dateItem) : undefined
 
-                  let color = cls`bg-gray-300 dark:bg-gray-500`
-                  let textColor = cls`text-gray-300 dark:text-gray-500`
+                  let color = 'bg-gray-300 dark:bg-gray-600'
+                  let textColor = 'text-gray-300 dark:text-gray-600'
+                  let insetColor = 'text-gray-600 dark:text-gray-400'
                   let statusStr: React.ReactNode = null
 
                   switch (renderStatus) {
                     case 'all-good':
-                      color = cls`bg-green-500 dark:bg-green-600`
-                      textColor = cls`text-green-500 dark:text-green-600`
+                      color = 'bg-green-500 dark:bg-green-600'
+                      textColor = 'text-green-500 dark:text-green-600'
+                      insetColor = 'text-green-600 dark:text-green-500'
                       statusStr = 'All good'
                       break
                     case 'all-incidents':
                       color = cls`bg-red-700 dark:bg-red-800`
                       textColor = cls`text-red-700 dark:text-red-800`
+                      insetColor = cls`text-red-800 dark:text-red-700`
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     case 'latest-incident':
                       color = cls`bg-red-500 dark:bg-red-600`
                       textColor = cls`text-red-500 dark:text-red-600`
+                      insetColor = cls`text-red-600 dark:text-red-500`
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     case 'has-incident':
                       color = cls`bg-yellow-500 dark:bg-yellow-600`
                       textColor = cls`text-yellow-500 dark:text-yellow-600`
+                      insetColor = cls`text-yellow-600 dark:text-yellow-500`
                       statusStr = `${targetDateChecksItem!.fails} incident(s)`
                       break
                     default:
@@ -232,15 +237,21 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                     <Tooltip key={dateItem}>
                       <TooltipTrigger
                         as='li'
-                        className='h-full'
+                        className='relative h-full'
                         style={{
                           width: itemWidth,
                         }}
                       >
                         <span
                           className={cls`
-                            rounded transition-all hover:opacity-70
-                            ${color} block
+                            rounded-sm transition-all hover:opacity-70
+                            ${color} ${insetColor} block
+                            before:absolute
+                            before:inset-0
+                            before:rounded-sm
+                            before:border-[0.8px]
+                            before:border-current
+                            before:content-['_']
                           `}
                           style={{
                             height: 28,
