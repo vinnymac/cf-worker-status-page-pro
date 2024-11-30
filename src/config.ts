@@ -14,16 +14,16 @@ export const config: Config = {
       name: 'Blog',
     },
     {
+      id: 'requests.forge.dns.navy',
+      url: 'https://requests.forge.dns.navy/login',
+      name: 'Plex Requests',
+      followRedirect: true,
+    },
+    {
       id: 'workers.cloudflare.com',
       url: 'https://workers.cloudflare.com',
       description: 'You write code. They handle the rest.',
       followRedirect: false,
-    },
-    {
-      id: 'requests.forge.dns.navy',
-      url: 'https://requests.forge.dns.navy/login',
-      name: 'Overseerr',
-      followRedirect: true,
     },
     {
       id: 'www.cloudflare.com',
