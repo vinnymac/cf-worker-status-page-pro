@@ -20,15 +20,17 @@ export const config: Config = {
       followRedirect: true,
     },
     {
-      id: 'workers.cloudflare.com',
-      url: 'https://workers.cloudflare.com',
-      description: 'You write code. They handle the rest.',
-      followRedirect: false,
-    },
-    {
       id: 'www.cloudflare.com',
       url: 'https://www.cloudflare.com',
+      name: 'Cloudflare',
       description: 'Built for anything connected to the Internet.',
+    },
+    {
+      id: 'workers.cloudflare.com',
+      url: 'https://workers.cloudflare.com',
+      name: 'Cloudflare Workers',
+      description: 'You write code. They handle the rest.',
+      followRedirect: false,
     },
     {
       id: 'google',
