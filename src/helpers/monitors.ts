@@ -13,9 +13,9 @@ function parseGvizText(gvizText: string) {
 function getMonitorsFromGvizJson(data: { table: { rows: ({ c: ({ v: any })[] })[] } }): Monitor[] {
   const [headerRow, ...rows]: ({ c: ({ v: keyof Monitor })[] })[] = data.table.rows
   const headers = headerRow.c.map((header) => header.v)
-  const monitors = rows.map((row) =>
+  const monitors = rows.map(({ c: rowValues }) =>
     headers.reduce((acc: Record<string, unknown>, header: string, index: number) => {
-      const value = row.c[index]?.v
+      const value = rowValues[index]?.v
       acc[header] = header === 'followRedirect' ? Boolean(value) : value
       return acc
     }, {}) as unknown as Monitor,
