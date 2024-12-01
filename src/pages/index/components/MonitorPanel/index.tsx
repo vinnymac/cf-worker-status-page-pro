@@ -68,12 +68,11 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
         </span>
         {!!data.lastUpdate && (
           <div className='text-xs font-light' suppressHydrationWarning title={new Date(data.lastUpdate.time).toLocaleString()}>
-            checked
+            last checked
             {' '}
             {Math.round((Date.now() - data.lastUpdate.time) / 1000)}
             {' '}
-            sec
-            ago (from
+            sec ago (from
             {' '}
             {parseLocation(data.lastUpdate.location)}
             )
