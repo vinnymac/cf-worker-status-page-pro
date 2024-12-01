@@ -23,9 +23,6 @@ importers:
       node-fetch:
         specifier: ^2.6.9
         version: 2.7.0
-      papaparse:
-        specifier: ^5.4.1
-        version: 5.4.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -84,9 +81,6 @@ importers:
       '@types/node-fetch':
         specifier: ^2.6.11
         version: 2.6.11
-      '@types/papaparse':
-        specifier: ^5.3.14
-        version: 5.3.14
       '@types/react':
         specifier: ^18.2.63
         version: 18.2.63
@@ -1317,9 +1311,6 @@ packages:
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
-
-  '@types/papaparse@5.3.14':
-    resolution: {integrity: sha512-LxJ4iEFcpqc6METwp9f6BV6VVc43m6MfH0VqFosHvrUgfXiFe6ww7R3itkOQ+TCK6Y+Iv/+RnnvtRZnkc5Kc9g==}
 
   '@types/prop-types@15.7.11':
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
@@ -3387,9 +3378,6 @@ packages:
 
   package-manager-detector@0.1.2:
     resolution: {integrity: sha512-iePyefLTOm2gEzbaZKSW+eBMjg+UYsQvUKxmvGXAQ987K16efBg10MxIjZs08iyX+DY2/owKY9DIdu193kX33w==}
-
-  papaparse@5.4.1:
-    resolution: {integrity: sha512-HipMsgJkZu8br23pW15uvo6sib6wne/4woLZPlFf3rpDyMe9ywEXUsuD7+6K9PRkJlVT51j/sCOYDKGGS3ZJrw==}
 
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -5656,10 +5644,6 @@ snapshots:
 
   '@types/normalize-package-data@2.4.4': {}
 
-  '@types/papaparse@5.3.14':
-    dependencies:
-      '@types/node': 20.11.25
-
   '@types/prop-types@15.7.11': {}
 
   '@types/ps-tree@1.1.6': {}
@@ -5856,7 +5840,7 @@ snapshots:
       '@vue/shared': 3.4.21
       entities: 4.5.0
       estree-walker: 2.0.2
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
 
   '@vue/compiler-dom@3.0.11':
     dependencies:
@@ -5877,8 +5861,8 @@ snapshots:
       '@vue/shared': 3.4.21
       estree-walker: 2.0.2
       magic-string: 0.30.8
-      postcss: 8.4.45
-      source-map-js: 1.2.0
+      postcss: 8.4.49
+      source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.0.11':
     dependencies:
@@ -7973,8 +7957,6 @@ snapshots:
   p-try@2.2.0: {}
 
   package-manager-detector@0.1.2: {}
-
-  papaparse@5.4.1: {}
 
   parent-module@1.0.1:
     dependencies:

@@ -7,7 +7,7 @@ Monitor your websites, showcase status including daily history, and get Slack no
 ## Features
 
 - 🦄 Written in TypeScript
-- ✨ Support [remote csv monitors](#remote-csv-monitors)
+- ✨ Support [remote monitors](#remote-monitors)
 - 🚀 No limit for max monitors of cron task, even with workers KV free tier
 - 🪁 [Auto GC](./src/worker/_helpers/store.ts#L77) for KV value size
 - 💎 More DX/UX detail you want
@@ -103,9 +103,11 @@ _Note: you may need to change `kv-namespaces` to `kv_namespaces`_
 pnpm run dev
 ```
 
-## Remote CSV Monitors
+## Remote Monitors
 
-You can use remote CSV monitors like [this template](https://docs.google.com/spreadsheets/d/1eNhgeS0ElQGFeaVLNJwFWI8JW-Ppv158necdqASJ6TY/edit?usp=sharing). You can get the URL by **File > Share > Publish to web** and select specific sheet and Comma-separated values (.csv).
+You can use remote monitors like [this template](https://docs.google.com/spreadsheets/d/1eNhgeS0ElQGFeaVLNJwFWI8JW-Ppv158necdqASJ6TY/edit?usp=sharing).
+You can publish via **File > Share > Publish to web** and select specific sheet.
+Then replace `<id>` in `https://docs.google.com/spreadsheets/d/<id>/gviz/tq?tqx=out:json&tq&gid=0` with yours, and add to `config.ts`.
 
 ## Credits
 

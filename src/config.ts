@@ -43,6 +43,6 @@ export const config: Config = {
       url: 'https://github.com/',
     },
   ],
-  monitorsCsvUrl:
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxISsGtFRS2exZBpnz3DvemxUwFJQcne9_MviCzrqZJJS1TKWpYbVtGZoA33yAtRUXsxpd24qdwiVD/pub?gid=0&single=true&output=csv',
+  monitorsGvizUrl:
+    'https://docs.google.com/spreadsheets/d/1Fh6_sqeTb1PUzU5LodJV-Ec27te28QPLtFyhUBwYJyY/gviz/tq?tqx=out:json&tq&gid=0',
 }
