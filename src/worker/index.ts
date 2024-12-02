@@ -24,7 +24,7 @@ const handleFetchEvent: FetchHandler = async (request, env, context) => {
 const handler: ExportedHandler<Env> = {
   // Worker startup time limit: 400ms
   // ref: https://developers.cloudflare.com/workers/platform/limits/#worker-startup-time
-  fetch: async (request, env, ctx) => {
+  async fetch(request, env, ctx) {
     try {
       return await handleFetchEvent(request, env, ctx)
     } catch (err) {
@@ -35,7 +35,7 @@ const handler: ExportedHandler<Env> = {
   // When the schedule interval is less than 1 hour, a Scheduled Worker may run for up to 30 seconds.
   // When the schedule interval is more than 1 hour, a scheduled Worker may run for up to 15 minutes.
   // ref: https://developers.cloudflare.com/workers/platform/limits/#cpu-time Note block
-  scheduled: async (controller, env, ctx) => {
+  async scheduled(controller, env, ctx) {
     switch (controller.cron) {
       case '*/2 * * * *':
         // Every two minutes

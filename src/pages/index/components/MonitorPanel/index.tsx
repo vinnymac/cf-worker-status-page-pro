@@ -264,11 +264,10 @@ const MonitorPanel: React.FC<IMonitorPanelProps> = (props) => {
                         {statusStr && <div className={`${textColor} font-semibold`}>{statusStr}</div>}
                         <div />
                         {targetDateChecksItem
-                          ? Object.keys(targetDateChecksItem.stats).map((item) => {
-                            const stat = targetDateChecksItem.stats[item]
+                          ? Object.entries(targetDateChecksItem.stats).map(([item, stat]) => {
                             return (
                               <div key={item}>
-                                <span className={`after:content-[':_']`}>
+                                <span className={`after:content-[':_']${stat.fails > 0 ? ` ${textColor}` : ''}`}>
                                   {parseLocation(item)}
                                 </span>
                                 <span>

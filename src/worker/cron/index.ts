@@ -97,6 +97,7 @@ export async function handleCronTrigger(env: Env, ctx: ExecutionContext) {
           [checkLocation]: {
             count: 0,
             totalMs: 0,
+            fails: monitorOperational ? 0 : 1,
           },
         }
       }
@@ -104,14 +105,17 @@ export async function handleCronTrigger(env: Env, ctx: ExecutionContext) {
         monitorHistoryDataChecksItem.stats[checkLocation] = {
           count: 0,
           totalMs: 0,
+          fails: monitorOperational ? 0 : 1,
         }
       }
       const count = monitorHistoryDataChecksItem.stats[checkLocation]!.count + 1
       const totalMs = monitorHistoryDataChecksItem.stats[checkLocation]!.totalMs + requestTime
+      const fails = monitorHistoryDataChecksItem.stats[checkLocation]!.fails + (monitorOperational ? 0 : 1)
 
       monitorHistoryDataChecksItem.stats[checkLocation] = {
         count,
         totalMs,
+        fails,
       }
     }
 

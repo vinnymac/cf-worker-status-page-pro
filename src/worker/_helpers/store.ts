@@ -47,6 +47,7 @@ export interface MonitorDailyChecksItem {
   stats: Record<string, {
     count: number
     totalMs: number
+    fails: number
     // totalMs / count
     // avgMs: number
   }>

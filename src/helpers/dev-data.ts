@@ -10,7 +10,7 @@ export function getDevKvData() {
       'workers.cloudflare.com': {
         checks:
         [
-          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 207819 }, EWR: { count: 94, totalMs: 34242 } } },
+          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 207819, fails: 0 }, EWR: { count: 94, totalMs: 34242, fails: 0 } } },
         ],
         firstCheck: '2024-03-11',
         lastCheck: { status: 200, statusText: 'OK', operational: true },
@@ -18,7 +18,7 @@ export function getDevKvData() {
       'www.cloudflare.com': {
         checks:
         [
-          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 8166 }, EWR: { count: 94, totalMs: 8911 } } },
+          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 8166, fails: 0 }, EWR: { count: 94, totalMs: 8911, fails: 0 } } },
         ],
         firstCheck: '2024-03-11',
         lastCheck: { status: 200, statusText: 'OK', operational: true },
@@ -26,19 +26,19 @@ export function getDevKvData() {
       'blog.cloudflare.com': {
         checks:
         [
-          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 37479 }, EWR: { count: 94, totalMs: 21724 } } },
+          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 37479, fails: 0 }, EWR: { count: 94, totalMs: 21724, fails: 0 } } },
         ],
         firstCheck: '2024-03-11',
         lastCheck: { status: 200, statusText: 'OK', operational: true },
       },
       'google': { checks:
         [
-          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 33435 }, EWR: { count: 94, totalMs: 22597 } } },
+          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 33435, fails: 0 }, EWR: { count: 94, totalMs: 22597, fails: 0 } } },
         ], firstCheck: '2024-03-11', lastCheck: { status: 200, statusText: 'OK', operational: true } },
       'bilibili': {
         checks:
         [
-          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 193258 }, EWR: { count: 94, totalMs: 84402 } } },
+          { date, fails: 0, stats: { MEL: { count: 156, totalMs: 193258, fails: 0 }, EWR: { count: 94, totalMs: 84402, fails: 0 } } },
         ],
         firstCheck: '2024-03-11',
         lastCheck: { status: 200, statusText: 'OK', operational: true },
@@ -46,7 +46,7 @@ export function getDevKvData() {
       'GitHub': {
         checks:
         [
-          { date, fails: 0, stats: { MEL: { count: 155, totalMs: 7816 }, SIN: { count: 1, totalMs: 35 }, EWR: { count: 94, totalMs: 4397 } } },
+          { date, fails: 0, stats: { MEL: { count: 155, totalMs: 7816, fails: 0 }, SIN: { count: 1, totalMs: 35, fails: 0 }, EWR: { count: 94, totalMs: 4397, fails: 0 } } },
         ],
         firstCheck: '2024-03-11',
         lastCheck: { status: 200, statusText: 'OK', operational: true },
